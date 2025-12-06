@@ -48,9 +48,12 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+
   DB_Connection();
-  console.log(`"Server running on" ${PORT}`)
-})
+// app.listen(PORT, () => {
+//   DB_Connection();
+//   console.log(`"Server running on" ${PORT}`)
+// })
 
 
+export const handler = serverless(app);
