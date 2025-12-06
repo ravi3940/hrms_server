@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Offer Letter</title>
+
+  <style>
+    /* A4 SIZE + PADDING */
+    @page {
+      size: A4;
+      margin: 20mm 20mm 20mm 20mm;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #000;
+      margin-bottom: 20px;
+    }
+
+    .company-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 5px;
+    }
+
+    .company-tagline {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: underline;
+      margin: 15px 0;
+      color: #000;
+    }
+
+    /* CONTENT STYLES */
+    .content-section {
+      margin-bottom: 15px;
+    }
+
+    .clause-number {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #000;
+    }
+
+    .clause-content {
+      margin-left: 0;
+      margin-bottom: 10px;
+      text-align: justify;
+    }
+
+    .signature-section {
+      margin-top: 40px;
+    }
+
+    .signature-block {
+      margin: 30px 0;
+    }
+
+    .signature-line {
+      border-top: 1px solid #000;
+      width: 200px;
+      margin: 5px 0;
+    }
+
+    .footer {
+      font-size: 11px;
+      color: #555;
+      text-align: center;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      margin-top: 30px;
+      line-height: 1.4;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    /* List styles */
+    ul {
+      margin: 5px 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    .indent {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="header">
+    <div class="company-name">Digi Tran</div>
+    <div class="company-tagline">TECHNOLOGY</div>
+    <div class="title">FIXED-TERM EMPLOYMENT OFFER LETTER</div>
+  </div>
+
+  <div class="content-section">
+    <p><strong>Date:</strong> <%= offer.offerDate || new Date().toLocaleDateString() %></p>
+    
+    <p>
+      <strong>To,</strong><br/>
+      <strong><%= offer.name %>,</strong>
+    </p>
+
+    <p><strong>Subject:</strong> Offer of Engagement as a <%= offer.position %> (Renewable Fixed-Term Contract)</p>
+
+    <p>
+      Dear <strong><%= offer.name %></strong>,
+    </p>
+
+    <p>
+      We are pleased to offer you an engagement as a <strong><%= offer.position %></strong> with the Client. 
+      Your contractual engagement shall commence on <strong><%= offer.joiningDate %></strong> and will be valid 
+      for a period of <strong>three (3) months</strong>, subject to renewal based on business requirements and your performance. 
+      Please find below the terms and conditions governing this engagement:
+    </p>
+
+    <!-- CLAUSE 1 -->
+    <div class="clause-number">1. Nature of Engagement</div>
+    <div class="clause-content">
+      You shall be engaged as a <strong><%= offer.position %></strong> on DigiTran's payroll to deliver services for the Client. 
+      This engagement does not create an employer-employee relationship, and you shall not be entitled to any benefits 
+      applicable to regular employees of the Company. This engagement will be completely remote based.
+    </div>
+
+    <!-- CLAUSE 2 -->
+    <div class="clause-number">2. Contract Tenure</div>
+    <div class="clause-content">
+      The initial term of this agreement shall be three (3) months, renewable solely at DigiTran's discretion. 
+      Renewal or termination shall depend on project requirements, performance evaluation, and client satisfaction.
+    </div>
+
+    <!-- CLAUSE 3 -->
+    <div class="clause-number">3. Timesheet</div>
+    <div class="clause-content">
+      The timesheet approved by the client shall only be considered for the payroll processing.
+    </div>
+
+    <!-- CLAUSE 4 -->
+    <div class="clause-number">4. Client's Right of Absorption (Performance-Based)</div>
+    <div class="clause-content">
+      The client reserves the right to absorb any deployed resource into their permanent rolls based on individual 
+      performance, conduct, and organizational requirements. Such absorption shall be at the sole discretion of 
+      the client and may occur after a minimum deployment period of three (3) months.
+    </div>
+
+    <!-- CLAUSE 5 -->
+    <div class="clause-number">5. Induction and Training Duration</div>
+    <div class="clause-content">
+      You will undergo a training of 7-10 days.
+    </div>
+  </div>
+
+  <!-- FOOTER FOR PAGE 1 -->
+  <div class="footer">
+    HD-121 Wework, Embassy Tech Village | Bangalore<br/>
+    Email : hr@digitran.agency Phone: 9632825286
+  </div>
+
+  <!-- PAGE BREAK -->
+  <div class="page-break"></div>
+
+  <!-- PAGE 2 -->
+  <div class="header">
+    <div class="company-name">Digi Tran</div>
+    <div class="title" style="visibility: hidden;">FIXED-TERM EMPLOYMENT OFFER LETTER</div>
+  </div>
+
+  <!-- CLAUSE 6 -->
+  <div class="clause-number">6. Duties and Responsibilities</div>
+  <div class="clause-content">
+    You shall perform services as assigned by DigiTran or its client with diligence, professionalism, and integrity. 
+    Your working hours shall be as per the project's operational requirements (generally 6 days a week, 9 hours per day). 
+    You agree to extend your working hours as necessary to meet delivery timelines or client expectations. 
+    You may be required to work at DigiTran offices, client premises, or remotely, as directed.
+  </div>
+
+  <!-- CLAUSE 7 -->
+  <div class="clause-number">7. Compensation</div>
+  <div class="clause-content">
+    The annual compensation will be <strong>₹<%= offer.salary %> per annum</strong> (inclusive of all taxes and statutory deductions). 
+    Payment will be released on 10th of the subsequent month, subject to satisfactory completion of deliverables. 
+    You will not be eligible for bonuses, incentives, or other benefits unless specifically approved in writing by DigiTran.
+  </div>
+
+  <!-- CLAUSE 8 -->
+  <div class="clause-number">8. Leave Policy</div>
+  <div class="clause-content">
+    <ul>
+      <li>You are entitled to 1 leave per month (non-encashable and non-carry forwardable beyond the contract term). Any absence beyond approved leave will result in proportionate deduction.</li>
+      <li>Continuous absence without approved leave or prior notification for 1 week will be treated as voluntary abandonment of employment and may result in immediate termination of employment without further notice.</li>
+      <li>You should send a prior mail to the HR for the approval of your leaves.</li>
+    </ul>
+  </div>
+
+  <!-- CLAUSE 9 -->
+  <div class="clause-number">9. Expenses</div>
+  <div class="clause-content">
+    Business-related expenses (travel, communication, etc.) shall be reimbursed only upon prior approval from DigiTran 
+    and submission of valid proof as per company policy.
+  </div>
+
+  <!-- CLAUSE 10 -->
+  <div class="clause-number">10. Termination</div>
+  <div class="clause-content">
+    DigiTran may terminate this agreement at any time with or without cause by providing 15 days' notice or payment in lieu thereof.
+    <ul>
+      <li>You may resign by giving 15 working days' written notice, subject to DigiTran's acceptance. No compensation will be payable upon termination, non-renewal, or completion of contract term.</li>
+      <li>The contract will be terminated if the client has issues with performance or actions in office without payment.</li>
+    </ul>
+  </div>
+
+  <!-- CLAUSE 11 -->
+  <div class="clause-number">11. Confidentiality and IP Ownership</div>
+  <div class="clause-content">
+    You shall maintain strict confidentiality of all proprietary, client, or project-related information both during and after your engagement. 
+    All intellectual property, documents, and creative work produced during your engagement shall be the exclusive property of DigiTran. 
+    Upon termination, you must return or permanently delete all materials belonging to DigiTran or its clients.
+  </div>
+
+  <!-- FOOTER FOR PAGE 2 -->
+  <div class="footer">
+    HD-121 Wework, Embassy Tech Village | Bangalore<br/>
+    Email : hr@digitran.agency Phone: 9632825286
+  </div>
+
+  <!-- PAGE BREAK -->
+  <div class="page-break"></div>
+
+  <!-- PAGE 3 -->
+  <div class="header">
+    <div class="company-name">Digi Tran</div>
+    <div class="title" style="visibility: hidden;">FIXED-TERM EMPLOYMENT OFFER LETTER</div>
+  </div>
+
+  <!-- CLAUSE 12 -->
+  <div class="clause-number">12. Non-Compete & Non-Solicitation</div>
+  <div class="clause-content">
+    You shall not, during or for 36 months after termination, engage with DigiTran's clients, prospects, or suppliers directly or indirectly without written approval. 
+    You shall not solicit DigiTran's employees, clients, or partners for business or employment.
+  </div>
+
+  <!-- CLAUSE 13 -->
+  <div class="clause-number">13. Liability & Indemnification</div>
+  <div class="clause-content">
+    You agree to indemnify and hold DigiTran harmless against any claims, losses, or damages arising from negligence, 
+    misconduct, or breach of confidentiality by you. DigiTran shall not be liable for any indirect, consequential, or special damages whatsoever.
+  </div>
+
+  <!-- CLAUSE 14 -->
+  <div class="clause-number">14. Legal Compliance & Jurisdiction</div>
+  <div class="clause-content">
+    This agreement shall be governed by the laws of India, with exclusive jurisdiction in the courts of Bengaluru, Karnataka. 
+    Any dispute shall be referred to arbitration under the Arbitration & Conciliation Act, 1996, with a sole arbitrator appointed by DigiTran.
+  </div>
+
+  <!-- CLAUSE 15 -->
+  <div class="clause-number">15. Communication Protocol</div>
+  <div class="clause-content">
+    You shall discuss only Payroll or commercial related works with DigiTran and work/project related works with the client.
+  </div>
+
+  <!-- CLAUSE 16 -->
+  <div class="clause-number">16. Entire Agreement</div>
+  <div class="clause-content">
+    This letter represents the complete understanding between you and DigiTran and supersedes any prior discussions or correspondence.
+  </div>
+
+  <!-- ACCEPTANCE SECTION -->
+  <div class="signature-section">
+    <div class="clause-content">
+      <strong>Acceptance:</strong><br/>
+      By signing this letter, you acknowledge that you have read, understood, and voluntarily accepted the terms and conditions mentioned herein.
+    </div>
+
+    <div class="signature-block">
+      <p><strong>For DigiTran</strong></p>
+      
+      <% if (offer.signature) { %>
+        <img src="<%= offer.signature %>" style="width: 160px; margin: 8px 0;"/>
+      <% } %>
+      
+      <p><strong>Name: Subrat Kumar Sen</strong></p>
+      <p><strong>Designation: Co-Founder & Director</strong></p>
+      <p><strong>Date: <%= offer.offerDate || new Date().toLocaleDateString() %></strong></p>
+    </div>
+
+    <div class="signature-block">
+      <p><strong>Accepted & Agreed by Candidate</strong></p>
+      <p>Signature: ______________________</p>
+      <p>Name: <%= offer.name %></p>
+      <p>Date: __________________________</p>
+    </div>
+  </div>
+
+  <!-- FOOTER FOR PAGE 3 -->
+  <div class="footer">
+    HD-121 Wework, Embassy Tech Village | Bangalore<br/>
+    Email : hr@digitran.agency Phone: 9632825286
+  </div>
+
+  <!-- PAGE BREAK -->
+  <div class="page-break"></div>
+
+  <!-- PAGE 4 (EMPTY WITH ONLY FOOTER) -->
+  <div style="height: 100vh; display: flex; align-items: flex-end;">
+    <div class="footer">
+      HD-121 Wework, Embassy Tech Village | Bangalore<br/>
+      Email : hr@digitran.agency Phone: 9632825286
+    </div>
+  </div>
+
+</body>
+</html>
